@@ -1,0 +1,14 @@
+[Unit]
+Description=Akile Auto Checkin Service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /path/to/auto_checkin.py -f /path/to/token.txt
+WorkingDirectory=/path/to
+Restart=always
+RestartSec=3600
+# 运行失败后等待1小时再重启，避免频繁重启
+User=your_username
+
+[Install]
+WantedBy=multi-user.target 
